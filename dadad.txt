@@ -1,0 +1,75 @@
+using System;
+
+namespace ConsoleApp84
+{
+    class Program
+    {
+        
+        static void Main(string[] args)
+        {
+
+            int[,] szamok = { { 1, -2, 3, 4, 5 },
+                               { 9, 8, 7, 6, -3 },
+                               { 12, 13, 15, 17, 18 },
+                               { 98, 76, 54, 32, 21 }};
+
+            // 1) Hány negatív érték van a mátrixban?
+            int negativok = 0;
+            foreach (int szam in szamok)
+            {
+                if (szam < 0)
+                {
+                    negativok++;
+                }
+            }
+
+            Console.WriteLine("Negativok szama: "+negativok + "db");
+
+            // 2) Mennyi a 3. sorban szereplõ számok összértéke?
+            int szum = 0;
+            
+            
+                for (int j = 0; j < szamok.GetLength(1); j++)
+                {
+                szum = szum + szamok[2,j];
+                }
+
+            Console.WriteLine("Szamok összerteke: "+szum);
+
+
+            // 3) Az elsõ oszlopban vagy az utolsó oszlopban lévõ számok összege a nagyobb?
+
+            int szumElso = 0;
+            int szumMasodik = 0;
+
+            for (int j = 0; j < szamok.GetLength(0); j++)
+            {
+                szumElso = szumElso + szamok[j,0];
+            }
+            for (int j = 0; j < szamok.GetLength(0); j++)
+            {
+                szumMasodik = szumMasodik + szamok[j, 4];
+            }
+            if (szumElso<szumMasodik)
+            {
+                Console.WriteLine("Utolso oszlop nagyobb");
+
+            }
+            else
+            {
+                Console.WriteLine("Elso oszlop nagyobb");
+            }
+
+           
+
+            // 4) A 3-mal osztható számokat helyezze egy új int[] osztható névvel rendelkezõ tömbbe!
+
+            int[] harmasszamok = { } ;
+
+            
+            //Console.WriteLine(harmasszamok);
+            Console.ReadKey();
+        }
+
+    }
+    }
